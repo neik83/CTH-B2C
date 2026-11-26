@@ -32,6 +32,10 @@
                 z-index: 100;
             }
             select { width: 170px; }
+            .lil-gui.root {
+                width: min(300px, 80vw) !important;
+                max-height: 70vh !important;
+            }
         </style>
     </head>
     <script type="importmap">
@@ -305,6 +309,7 @@
 
             // ---- GUI Init ----
             const gui = new GUI({ width: 300, closeFolders: true });
+            gui.close();
             const addFolder = GUI.prototype.addFolder;
             GUI.prototype.addFolder = function(...args) {
                 return addFolder.call(this, ...args).close();
